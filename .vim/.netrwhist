@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/usr/local/Library/LinkedKegs'
-let g:netrw_dirhist_2='/Users/roselone'
-let g:netrw_dirhist_3='/Users/roselone/.gem'
-let g:netrw_dirhist_4='/Users/roselone/.gem/specs'
-let g:netrw_dirhist_5='/Users/roselone/.gem/specs/rubygems.org%80'
-let g:netrw_dirhist_6='/Users/roselone'
-let g:netrw_dirhist_7='/usr/local/Library/Homebrew/test'
