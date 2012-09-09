@@ -39,6 +39,9 @@ Bundle 'gmarik/vundle'
 
 Bundle 'fugitive.vim'
 Bundle 'L9'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'majutsushi/tagbar'
+Bundle 'scrooloose/nerdtree'
 "================================================
 
 filetype on
@@ -78,10 +81,24 @@ let Tlist_Exit_OnlyWindow = 1
 "use native tags
 "set tags=tagsfile
 
-let g:winManagerWindowLayout = "FileExplorer|TagList"
+let g:NERDTree_title="NERD Tree"
+
+function! NERDTree_Start()
+	exec 'NERDTree'
+endfunction
+
+function! NERDTree_IsValid()
+	return 1
+endfunction
+
+let g:winManagerWindowLayout = "NERDTree|TagList"
 let g:winManagerWidth = 30
 let g:defaultExplorer = 0
-nmap wm :WMToggle<cr>
+nmap wm :WMToggle<CR>
+
+let g:tarbar_ctags_bin = '/usr/local/bin/ctags'
+let g:tagbar_width = 30
+nnoremap <leader>tb :TagbarToggle<CR>
 
 if has("cscope")
 	set csprg=/usr/local/bin/cscope
