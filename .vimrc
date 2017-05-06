@@ -42,6 +42,10 @@ Bundle 'L9'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'Yggdroot/indentLine'
+"Bundle 'yuner/autoHEADER'  
 "================================================
 
 filetype on
@@ -79,7 +83,7 @@ let Tlist_Exit_OnlyWindow = 1
 "let Tlist_Use_Right_Window = 1
 
 "use native tags
-"set tags=tagsfile
+set tags=/Users/roselone/system/linux-3.5.4/tags
 
 let g:NERDTree_title="NERD Tree"
 
@@ -91,7 +95,7 @@ function! NERDTree_IsValid()
 	return 1
 endfunction
 
-let g:winManagerWindowLayout = "NERDTree|TagList"
+let g:winManagerWindowLayout = "NERDTree"
 let g:winManagerWidth = 30
 let g:defaultExplorer = 0
 nmap wm :WMToggle<CR>
@@ -99,6 +103,13 @@ nmap wm :WMToggle<CR>
 let g:tarbar_ctags_bin = '/usr/local/bin/ctags'
 let g:tagbar_width = 30
 nnoremap <leader>tb :TagbarToggle<CR>
+
+"================================================
+"tab
+nnoremap <leader>tw :tabnew<CR>
+nnoremap <leader>tc :tabclose<CR>
+nnoremap <leader>tn :tabnext<CR>
+nnoremap <leader>tp :tabp<CR>
 
 if has("cscope")
 	set csprg=/usr/local/bin/cscope
@@ -108,8 +119,17 @@ if has("cscope")
 	"add any database in current directory
 	if filereadable("cscope.out")
 		cs add cscope.out
+	elseif filereadable("../cscope.out")
+		cs add ../cscope.out
 	elseif $CSCOPE_DB != ""
 		cs add $CSCOPE_DB
 	endif
 	set csverb
 endif
+
+"================================================
+"python spec
+autocmd FileType python setlocal et sta sw=4 sts=4
+"代码折叠 za zA
+autocmd FileType python setlocal foldmethod=indent
+set foldlevel=99
